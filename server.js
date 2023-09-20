@@ -2,8 +2,10 @@ import { ApolloServer, gql } from "apollo-server";
 
 const typeDefs = gql`
   type User {
-    id: ID
-    username: String
+    id: ID!
+    username: String!
+    firstname: String!
+    lastname: String
   }
   type Tweet {
     id: ID
@@ -15,8 +17,8 @@ const typeDefs = gql`
     tweet(id: ID): Tweet
   }
   type Mutation {
-    postTweet(text: String, userId: ID): Tweet
-    deleteTweet(id: ID): Boolean
+    postTweet(text: String!, userId: ID!): Tweet!
+    deleteTweet(id: ID!): Boolean!
   }
 `;
 
